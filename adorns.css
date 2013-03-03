@@ -1,0 +1,33 @@
+body, td { font-size: 12px; }
+
+table.thin { border-spacing: 0; border-collapse:collapse;}
+table.thin td { padding: 2px; }
+.bl { border-left: 3px solid black; }
+
+.tiny { font-size: smaller; }
+.pos { background-color: dodgerblue; background-color: rgba(30,144,255, .75); text-align: center; }
+.slotHead { padding:0; }
+.slotHead button {
+padding: 0 2px;
+}
+
+.rotate {
+-webkit-transform: rotate(-90deg);
+-moz-transform: rotate(-90deg);
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+.lesser { background-color: #CCFF99; }
+.greater { background-color: #FFC993; }
+.superior { background-color: #FF939D; }
+
+.clickable { cursor: pointer; }
+img.silk { height: 16px; width:16px; vertical-align: text-bottom; display: inline-block; }
+
+.rowReset { display: none; }
+.colReset { display: none; }
+
+ul.inline { display: inline; padding-left: 0; }
+ul.inline li { display: inline; }
+li.nav:before { content:"["; }
+li.nav:after { content:"]"; }
