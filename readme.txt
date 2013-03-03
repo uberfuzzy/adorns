@@ -1,0 +1,1 @@
+this is the code that generates the pages at http://eq2.uberfuzzy.com/adorn/
