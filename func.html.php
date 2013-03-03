@@ -16,9 +16,12 @@ function makeHtml( $adorns, $htmlFile, $colorMode='white' ) {
 <body>
 ';
 
+	$htmlDir = 'html/';
+	@mkdir( $htmlDir );
+
 	$qtext = array('l'=>'Lesser','g'=>'Greater','s'=>'Superior');
-	$silkRoot = 'http://uber/silk';
-	$silkRoot = 'http://silk.ubrfzy.com';
+	$silkRoot = 'http://uber/silk'; #dev
+	$silkRoot = 'http://silk.ubrfzy.com'; #prod
 	$image = array();
 	$image['check'] = "<img class='silk' src='{$silkRoot}/accept.png'>";
 	$image['-']     = "<img class='silk' src='{$silkRoot}/delete.png'>";
@@ -166,6 +169,6 @@ Red <ul class='inline'>
 	print "</body>\n";
 	print "</html>\n";
 
-	file_put_contents( $htmlFile, ob_get_clean() );
+	file_put_contents( $htmlDir . $htmlFile, ob_get_clean() );
 	print "html written\n";
 }

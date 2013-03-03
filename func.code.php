@@ -8,7 +8,7 @@ function getData($searchTerms, $cacheFile) {
 	$params['typeinfo.name'] = 'adornment';
 
 	// print_r($params); print "\n";
-	
+
 	$sparams = array();
 	foreach( $searchTerms as $st ) {
 		$sparams[] = sprintf("%s%s%s",  $st['field'], (empty($st['glue'])?'=':$st['glue']), str_replace(' ','+',$st['value']) );
@@ -17,9 +17,12 @@ function getData($searchTerms, $cacheFile) {
 	$ss = implode("&", $sparams);
 	// print_r($ss); print "\n";
 
-	if( file_exists($cacheFile) && 1) {
+	$cacheDir = 'cache/';
+	@mkdir( $cacheDir );
+
+	if( file_exists($cacheDir . $cacheFile) && 1) {
 		print "cache detected, loading\n";
-		$json = unserialize( file_get_contents( $cacheFile ) );
+		$json = unserialize( file_get_contents( $cacheDir . $cacheFile ) );
 	} else {
 		print "cache MISS, fetching from web\n";
 		// var_dump( $params );
@@ -34,11 +37,11 @@ function getData($searchTerms, $cacheFile) {
 		$json = json_decode( $ret );
 		if( $json == false ) { return false; }
 		// var_dump( $json );
-		
+
 		$json = $json->item_list;
 		if( empty($json) ) { return false; }
 
-		file_put_contents( $cacheFile, serialize( $json ) );
+		file_put_contents( $cacheDir . $cacheFile, serialize( $json ) );
 	}
 
 	return $json;
