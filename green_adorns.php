@@ -117,6 +117,8 @@ print
 .statBox {
 	width: 2em;
 }
+
+.under { background-color: rgba(100%, 100%, 0%, .5); }
 ";
 print "</style>\n";
 
@@ -144,6 +146,12 @@ foreach($parsed as $adorn) {
 		print "<td><small>... ". str_replace("This will grow in power as ",'',$adorn['growth']) ."</small></td>\n";
 		print "<td><a target='_new' href=\"http://u.eq2wire.com/item/index/{$adorn['id']}\">{$adorn['name']}</a><br/>\n";
 		print "<small>{$adorn['id']}</small></td>\n";
+		if( $adorn['level'] < 90 ) {
+			print "<td class='under'>";
+		} else {
+			print "<td>";
+		}
+			print $adorn['level'] ."</td>\n";
 
 		foreach( $keyHistory as $kh ) {
 		print "<td class='statBox'>";
