@@ -136,8 +136,8 @@ print "<table border=1>\n";
 
 foreach($parsed as $adorn) {
 	print "<tr>\n";
-		print "<td>{$adorn['id']}</td>\n";
-		print "<td>{$adorn['name']}</td>\n";
+		print "<td><small>{$adorn['id']}</small></td>\n";
+		print "<td><a target='_new' href=\"http://u.eq2wire.com/item/index/{$adorn['id']}\">{$adorn['name']}</td>\n";
 		print "<td>{$adorn['level']}</td>\n";
 		print "<td><small>... ". str_replace("This will grow in power as ",'',$adorn['growth']) ."</small></td>\n";
 
