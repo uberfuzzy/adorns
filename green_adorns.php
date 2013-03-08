@@ -120,6 +120,8 @@ print
 
 .under { background-color: rgba(100%, 100%, 0%, .5); }
 .commonXP  { background-color: rgba(100%, 55.3%, 11.8%, .5); }
+.blueStat  { background-color: rgba(11.8%, 56.5%, 100%, .5); }
+.greenStat { background-color: rgba(11.8%, 100%, 55.3%, .5); }
 ";
 print "</style>\n";
 
@@ -135,7 +137,12 @@ print "<table border=1>\n";
 		print "<th>This will grow in power as...</small></td>\n";
 
 		foreach( $keyHistory as $kh ) {
-		print "<th class='statHead'><span class='uptext' title='{$kh}'>{$translate[$kh]}</span></th>\n";
+			if( in_array($kh, array('str','agi','int','wis','sta') ) ) {
+				$color = 'greenStat';
+			} else {
+				$color = 'blueStat';
+			}
+			print "<th class='statHead {$color}'><span class='uptext' title='{$kh}'>{$translate[$kh]}</span></th>\n";
 		}
 
 	print "</tr>\n";
