@@ -126,8 +126,8 @@ print "<body>\n";
 
 print "<table border=1>\n";
 	print "<tr>\n";
-		print "<th>id</t>\n";
-		print "<th>name</th>\n";
+		print "<th>name/<br>\n";
+		print "id</th>\n";
 		print "<th>level</th>\n";
 		print "<th>This will grow in power as...</small></td>\n";
 
@@ -140,10 +140,10 @@ print "<table border=1>\n";
 
 foreach($parsed as $adorn) {
 	print "<tr>\n";
-		print "<td><small>{$adorn['id']}</small></td>\n";
-		print "<td><a target='_new' href=\"http://u.eq2wire.com/item/index/{$adorn['id']}\">{$adorn['name']}</td>\n";
 		print "<td>{$adorn['level']}</td>\n";
 		print "<td><small>... ". str_replace("This will grow in power as ",'',$adorn['growth']) ."</small></td>\n";
+		print "<td><a target='_new' href=\"http://u.eq2wire.com/item/index/{$adorn['id']}\">{$adorn['name']}</a><br/>\n";
+		print "<small>{$adorn['id']}</small></td>\n";
 
 		foreach( $keyHistory as $kh ) {
 		print "<td class='statBox'>";
