@@ -89,7 +89,11 @@ foreach( $adorns as $adorn ) {
 }
 
 print "\n\n";
-print "unknownCount={$unknownCount}\n";
+if( $unknownCount ) {
+	print "unknownCount={$unknownCount}\n";
+	exit;
+}
+
 $keyHistory = array_unique( $keyHistory );
 
 ob_start();
