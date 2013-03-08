@@ -88,9 +88,8 @@ foreach( $adorns as $adorn ) {
 	$parsed[] = $current;
 }
 
-print "\n\n";
 if( $unknownCount ) {
-	print "unknownCount={$unknownCount}\n";
+	print "\nHALT! unknownCount={$unknownCount}\n";
 	exit;
 }
 
