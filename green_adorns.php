@@ -119,6 +119,7 @@ print
 }
 
 .under { background-color: rgba(100%, 100%, 0%, .5); }
+.commonXP  { background-color: rgba(100%, 55.3%, 11.8%, .5); }
 ";
 print "</style>\n";
 
@@ -142,16 +143,23 @@ print "<table border=1>\n";
 
 foreach($parsed as $adorn) {
 	print "<tr>\n";
-		print "<td>{$adorn['level']}</td>\n";
-		print "<td><small>... ". str_replace("This will grow in power as ",'',$adorn['growth']) ."</small></td>\n";
 		print "<td><a target='_new' href=\"http://u.eq2wire.com/item/index/{$adorn['id']}\">{$adorn['name']}</a><br/>\n";
 		print "<small>{$adorn['id']}</small></td>\n";
+
 		if( $adorn['level'] < 90 ) {
 			print "<td class='under'>";
 		} else {
 			print "<td>";
 		}
 			print $adorn['level'] ."</td>\n";
+
+		$growth = str_replace("This will grow in power as ",'',$adorn['growth']);
+		if( $growth == "you gain Adventure Experience!" ) {
+			print "<td class='commonXP'>";
+		} else {
+			print "<td>";
+		}
+		print "<small>... {$growth}</small></td>\n";
 
 		foreach( $keyHistory as $kh ) {
 		print "<td class='statBox'>";
