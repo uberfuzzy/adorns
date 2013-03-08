@@ -96,6 +96,7 @@ if( $unknownCount ) {
 
 $keyHistory = array_unique( $keyHistory );
 
+print "start html\n";
 ob_start();
 
 print "<!DOCTYPE html><html>\n";
@@ -181,7 +182,10 @@ print "</table>\n";
 print "</body>\n";
 
 print "</html>\n";
+$html = ob_get_clean();
+print "end html\n";
 
 @mkdir("html");
-file_put_contents( 'html/green.html', ob_get_clean() );
+file_put_contents( 'html/green.html', $html );
 
+print "filesize=". filesize('html/green.html') . "\n";
