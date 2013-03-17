@@ -1,0 +1,15 @@
+RewriteEngine on
+RewriteRule ^astral$ html/astral.html [L]
+RewriteRule ^astral_red$ html/astral_red.html [L]
+RewriteRule ^astral_yellow$ html/astral_yellow.html [L]
+RewriteRule ^ethereal$ html/ethereal.html [L]
+RewriteRule ^ethereal_yellow$ html/ethereal_yellow.html [L]
+RewriteRule ^flickering$ html/flickering.html [L]
+RewriteRule ^glimmering$ html/glimmering.html [L]
+RewriteRule ^glowing$ html/glowing.html [L]
+RewriteRule ^luminous$ html/luminous.html [L]
+RewriteRule ^scintillating$ html/scintillating.html [L]
+RewriteRule ^smoldering$ html/smoldering.html [L]
+RewriteRule ^sparkling$ html/sparkling.html [L]
+
+RewriteRule ^green$ html/green.html [L]
