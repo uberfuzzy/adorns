@@ -1,4 +1,6 @@
 <?php
+include_once "func.html.php";
+
 $url = "http://data.soe.com/json/get/eq2/item/?c:limit=100&c:has=typeinfo.growthdescription&c:show=displayname,leveltouse,typeinfo.growthdescription,growth_table,gamelink&c:sort=leveltouse,displayname";
 
 @mkdir("cache");
@@ -101,28 +103,14 @@ ob_start();
 print "<!DOCTYPE html><html>\n";
 print "<head>\n";
 
+print '<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://u.eq2wire.com/js/eq2u_tools.js"></script>
+<link rel="stylesheet" href="adorns.css">
+<link rel="stylesheet" href="green.css">
+';
+
+print "<title>Green Adornments</title>\n";
 print "<style>\n";
-print
-".uptext {
-    display: block;
-	-webkit-transform: rotate(-90deg);
-	-moz-transform: rotate(-90deg);
-	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-}
-
-.statHead {
-	width: 2.5em;
-	font-size: 80%;
-}
-.statBox {
-	width: 2em;
-}
-
-.under { background-color: rgba(100%, 100%, 0%, .5); }
-.commonXP  { background-color: rgba(100%, 55.3%, 11.8%, .5); }
-.blueStat  { background-color: rgba(11.8%, 56.5%, 100%, .5); }
-.greenStat { background-color: rgba(11.8%, 100%, 55.3%, .5); }
-";
 print "</style>\n";
 
 print "</head>\n";
@@ -178,6 +166,9 @@ foreach($parsed as $adorn) {
 	print "</tr>\n";
 }
 print "</table>\n";
+
+footerLinks();
+
 print "</body>\n";
 
 print "</html>\n";

@@ -1,0 +1,21 @@
+.uptext {
+    display: block;
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+.statHead {
+	width: 2.5em;
+	font-size: 90%;
+}
+.statBox {
+	width: 2em;
+}
+
+th { font-weight: normal; }
+td { font-size: 100%; }
+.under { background-color: rgba(100%, 100%, 0%, .5); }
+.commonXP  { background-color: rgba(100%, 55.3%, 11.8%, .5); }
+.blueStat  { background-color: rgba(11.8%, 56.5%, 100%, .5); }
+.greenStat { background-color: rgba(11.8%, 100%, 55.3%, .5); }
