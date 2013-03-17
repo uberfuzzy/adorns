@@ -15,6 +15,7 @@ $work[] = array(
 	),
 	'html'=> 'ethereal_yellow.html',
 	'cache'=> 'ethereal_yellow.dat',
+	'title'=> 'Yellow Adornments, L80-89 ',
 ); #80
 
 
@@ -27,6 +28,7 @@ $work[] = array(
 	),
 	'html'=> 'astral_yellow.html',
 	'cache'=> 'astral_yellow.dat',
+	'title'=> 'Yellow Adornments, L90+',
 ); #90
 
 $work[] = array(
@@ -38,6 +40,7 @@ $work[] = array(
 	),
 	'html'=> 'astral_red.html',
 	'cache'=> 'astral_red.dat',
+	'title'=> 'Red Adornments, L90+',
 ); #90
 
 

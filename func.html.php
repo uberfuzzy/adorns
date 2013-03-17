@@ -20,6 +20,7 @@ function makeHtml( $adornData, $workUnit ) {
 <script type="text/javascript" src="http://u.eq2wire.com/js/eq2u_tools.js"></script>
 <link rel="stylesheet" href="adorns.css">
 <script type="text/javascript" src="adorns.js"></script>
+<title>'. $workUnit['title'] .'</title>
 </head>
 <body>
 ';
