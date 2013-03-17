@@ -143,26 +143,9 @@ function makeHtml( $adorns, $htmlFile, $colorMode='white' ) {
 	print "</table>\n";
 	print "<button class='rowReset clickable'>" . $image['reset'] . " unhide all hidden rows</button>\n";
 	print "<button class='colReset clickable'>" . $image['reset'] . " unhide all hidden columns</button><br>\n";
-?>Links:<br>
-White <ul class='inline'>
-<li class='nav'><a href="astral.html">Astrals (L90)</a></li>
-<li class='nav'><a href="ethereal.html">Ethereals (L80)</a></li>
-<li class='nav'><a href="smoldering.html">Smoldering (L70)</a></li>
-<li class='nav'><a href="scintillating.html">Scintillating (L60)</a></li>
-<li class='nav'><a href="luminous.html">Luminous (L50)</a></li>
-<li class='nav'><a href="glimmering.html">Glimmering (L40)</a></li>
-<li class='nav'><a href="sparkling.html">Sparkling (L30)</a></li>
-<li class='nav'><a href="glowing.html">Glowing (L20)</a></li>
-<li class='nav'><a href="flickering.html">Flickering (L10)</a></li>
-</ul><br>
-Yellow <ul class='inline'>
-<li class='nav'><a href="astral_yellow.html">Astrals (L90)</a></li>
-<li class='nav'><a href="ethereal_yellow.html">Ethereals (L80)</a></li>
-</ul><br>
-Red <ul class='inline'>
-<li class='nav'><a href="astral_red.html">Astrals (L90)</a></li>
-</ul><br>
-<?php
+
+	footerLinks();
+
 	print "<hr>\n";
 	print "Popups provided by <a href='http://u.eq2wire.com'>EQ2U</a>, an <a href='http://eq2wire.com'>EQ2Wire</a> project<br>\n";
 	print "generated=" . gmdate('r') . "<br>\n";
@@ -171,4 +154,31 @@ Red <ul class='inline'>
 
 	file_put_contents( $htmlDir . $htmlFile, ob_get_clean() );
 	print "html written\n";
+}
+
+function footerLinks() {
+?>
+Links:<br>
+White <ul class='inline'>
+<li class='nav'><a href="astral">Astrals (L90)</a></li>
+<li class='nav'><a href="ethereal">Ethereals (L80)</a></li>
+<li class='nav'><a href="smoldering">Smoldering (L70)</a></li>
+<li class='nav'><a href="scintillating">Scintillating (L60)</a></li>
+<li class='nav'><a href="luminous">Luminous (L50)</a></li>
+<li class='nav'><a href="glimmering">Glimmering (L40)</a></li>
+<li class='nav'><a href="sparkling">Sparkling (L30)</a></li>
+<li class='nav'><a href="glowing">Glowing (L20)</a></li>
+<li class='nav'><a href="flickering">Flickering (L10)</a></li>
+</ul><br>
+Yellow <ul class='inline'>
+<li class='nav'><a href="astral_yellow">Astrals (L90)</a></li>
+<li class='nav'><a href="ethereal_yellow">Ethereals (L80)</a></li>
+</ul><br>
+Red <ul class='inline'>
+<li class='nav'><a href="astral_red">Astrals (L90)</a></li>
+</ul><br>
+Green <ul class='inline'>
+<li class='nav'><a href="green">All Levels</a></li>
+</ul><br>
+<?php
 }
