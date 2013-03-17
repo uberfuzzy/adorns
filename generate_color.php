@@ -62,7 +62,7 @@ foreach( $work as $unit ) {
 	}
 
 	print "start html\n";
-	makeHtml( $adorns, $unit['html'], $unit['color']);
+	makeHtml( $adorns, $unit );
 }
 
 // ob_start();

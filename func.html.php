@@ -1,10 +1,18 @@
 <?php
 
-function makeHtml( $adorns, $htmlFile, $colorMode='white' ) {
+function makeHtml( $adornData, $workUnit ) {
 	global $slotMap;
 	global $groupMap;
 	global $groupWidth;
 
+	if( empty($workUnit['html']) ) {
+		$workUnit['html'] = time() . '.html';
+	}
+	
+	if( empty($workUnit['color']) ) {
+		$workUnit['color'] = 'white';
+	}
+	
 	ob_start();
 	print '<!DOCTYPE html>
 <head>
@@ -15,9 +23,6 @@ function makeHtml( $adorns, $htmlFile, $colorMode='white' ) {
 </head>
 <body>
 ';
-
-	$htmlDir = 'html/';
-	@mkdir( $htmlDir );
 
 	$qtext = array('l'=>'Lesser','g'=>'Greater','s'=>'Superior');
 	$silkRoot = 'http://uber/silk'; #dev
@@ -34,24 +39,24 @@ function makeHtml( $adorns, $htmlFile, $colorMode='white' ) {
 	print "<thead>\n";
 	print "<tr>\n";
 		print "<th colspan='3' rowspan=2>name</th>\n";
-		if( $colorMode != 'white' ) {
+		if( $workUnit['color'] != 'white' ) {
 			print "<th colspan='1' rowspan=2>links</th>\n";
 		} else {
 			print "<th colspan='3'>quality</th>\n";
 		}
-		print "<th colspan='{$groupWidth[$colorMode]['a']}' class='slotGroup' data-group='a' data-original='7'>armor</th>\n";
-		print "<th colspan='{$groupWidth[$colorMode]['j']}' class='slotGroup' data-group='j' data-original='7'>jewelery</th>\n";
-		print "<th colspan='{$groupWidth[$colorMode]['w']}' class='slotGroup' data-group='w' data-original='3'>weapons</th>\n";
+		print "<th colspan='{$groupWidth[$workUnit['color']]['a']}' class='slotGroup' data-group='a' data-original='7'>armor</th>\n";
+		print "<th colspan='{$groupWidth[$workUnit['color']]['j']}' class='slotGroup' data-group='j' data-original='7'>jewelery</th>\n";
+		print "<th colspan='{$groupWidth[$workUnit['color']]['w']}' class='slotGroup' data-group='w' data-original='3'>weapons</th>\n";
 	print "</tr>\n";
 
 
 	print "<tr>\n";
-		if( $colorMode == 'white' ) {
+		if( $workUnit['color'] == 'white' ) {
 			foreach( $qtext as $qt ) {
 				print "<th class='tiny'>{$qt}</th>\n";
 			}
 		}
-		foreach( $slotMap[$colorMode] as $si=>$slotText ) {
+		foreach( $slotMap[$workUnit['color']] as $si=>$slotText ) {
 			print "<th class='slotHead tiny' data-slot='{$si}' data-group='{$groupMap[$si]}'>{$slotText}<br>";
 			print "<span class='rCol clickable' title='hide this column'>{$image['-']}</span>";
 			print "<span class='oCol clickable' title='only show this column'>{$image['only']}</span>";
@@ -69,7 +74,7 @@ function makeHtml( $adorns, $htmlFile, $colorMode='white' ) {
 		'slots' = array(), integer list of slot ids
 	*/
 
-	foreach( $adorns as $a ) {
+	foreach( $adornData as $a ) {
 
 		print "<tr>\n";
 
@@ -80,7 +85,7 @@ function makeHtml( $adorns, $htmlFile, $colorMode='white' ) {
 		# minus
 		print "<td><span class='clickable rowHider' title='hide this row'>{$image['-']}</span></td>\n";
 
-		if( $colorMode == 'white' ) {
+		if( $workUnit['color'] == 'white' ) {
 			# do the quality cells
 			foreach( $a['quality'] as $qi=>$has ) {
 				$inner = ''; # reset
@@ -119,7 +124,7 @@ function makeHtml( $adorns, $htmlFile, $colorMode='white' ) {
 		# do the slots
 		#   we make a cell for every slot (using slotMap)
 		#   and conditionally color+image if this adorn can be placed there
-		foreach($slotMap[$colorMode] as $slotIndex=>$mn) {
+		foreach($slotMap[$workUnit['color']] as $slotIndex=>$mn) {
 			#they all are marked with this
 			$c = 'slot';
 			# reset contents
@@ -152,7 +157,10 @@ function makeHtml( $adorns, $htmlFile, $colorMode='white' ) {
 	print "</body>\n";
 	print "</html>\n";
 
-	file_put_contents( $htmlDir . $htmlFile, ob_get_clean() );
+	$htmlDir = 'html/';
+	@mkdir( $htmlDir );
+
+	file_put_contents( $htmlDir . $workUnit['html'], ob_get_clean() );
 	print "html written\n";
 }
 
