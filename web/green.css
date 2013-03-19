@@ -1,19 +1,41 @@
-.uptext {
-    display: block;
-	-webkit-transform: rotate(-90deg);
-	-moz-transform: rotate(-90deg);
-	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+.greenTable {
+	border-collapse: collapse;
 }
 
 .statHead {
-	width: 2.5em;
-	font-size: 90%;
+	font-weight: normal; 
 }
 .statBox {
-	width: 2em;
+	/* width: 2em; */
+	text-align: center;
 }
 
-th { font-weight: normal; }
+/* crazy vertical text voodoo from  http://dabblet.com/gist/4072362 */
+.uptext {
+	display: inline-block;
+	overflow: hidden;
+	width: 1.5em;
+}
+.uptext_inner {
+	display: inline-block;
+	white-space: nowrap;
+	line-height: 1.5;
+	-webkit-transform: translate(0,100%) rotate(-90deg);
+	   -moz-transform: translate(0,100%) rotate(-90deg);
+	    -ms-transform: translate(0,100%) rotate(-90deg);
+	     -o-transform: translate(0,100%) rotate(-90deg);
+	-webkit-transform-origin: 0 0;
+	   -moz-transform-origin: 0 0;
+	    -ms-transform-origin: 0 0;
+	     -o-transform-origin: 0 0;
+}
+.uptext_inner:after {
+	content: "";
+	display: block;
+	margin: -1.5em 0 100%;
+}
+
+th { vertical-align: bottom; }
 td { font-size: 100%; }
 .under { background-color: rgba(100%, 100%, 0%, .5); }
 .commonXP  { background-color: rgba(100%, 55.3%, 11.8%, .5); }

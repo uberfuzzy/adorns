@@ -32,16 +32,16 @@ $translate['critbonus'] = 'Crit Bonus';
 $translate['spelltimereusespellonly'] = 'Spell Reuse Speed';
 $translate['dps'] = 'Damage Per Second';
 $translate['attackspeed'] = 'Attack Speed';
-$translate['spellweapondps'] = 'Spell&nbsp;Weapon Damage Per Second';
-$translate['spellweapondoubleattackchance'] = 'Spell&nbsp;Weapon Multi Attack Chance';
+$translate['spellweapondps'] = 'Spell Weapon Damage Per Second';
+$translate['spellweapondoubleattackchance'] = 'Spell Weapon Multi Attack Chance';
 $translate['hategainmod'] = 'Hate Gain';
 $translate['armormitigationincrease'] = 'Mitigation Increase';
 $translate['maxhpperc'] = 'Max Health';
 $translate['spelltimereusepct'] = 'Ability Reuse Speed';
 $translate['weapondamagebonus'] = 'Weapon Damage Bonus';
-$translate['spellweaponattackspeed'] = 'Spell&nbsp;Weapon Attack Speed';
+$translate['spellweaponattackspeed'] = 'Spell Weapon Attack Speed';
 $translate['doubleattackchance'] = 'Multi Attack Chance';
-$translate['strikethrough'] = 'Strike&#8203through';
+$translate['strikethrough'] = 'Strikethrough';
 // $translate[''] = '';
 
 
@@ -117,7 +117,7 @@ print "</head>\n";
 
 print "<body>\n";
 
-print "<table border=1>\n";
+print "<table border=1 class='greenTable'>\n";
 	print "<tr>\n";
 		print "<th>name/<br>\n";
 		print "id</th>\n";
@@ -130,7 +130,7 @@ print "<table border=1>\n";
 			} else {
 				$color = 'blueStat';
 			}
-			print "<th class='statHead {$color}'><span class='uptext' title='{$kh}'>{$translate[$kh]}</span></th>\n";
+			print "<th class='statHead {$color}'><div class='uptext' title='{$kh}'><div class='uptext_inner'>{$translate[$kh]}</div></div></th>\n";
 		}
 
 	print "</tr>\n";
