@@ -119,9 +119,8 @@ print "<body>\n";
 
 print "<table border=1 class='greenTable'>\n";
 	print "<tr>\n";
-		print "<th>name/<br>\n";
-		print "id</th>\n";
-		print "<th>level</th>\n";
+		print "<th>name</th>\n";
+		print "<th>lvl</th>\n";
 		print "<th>This will grow in power as...</small></td>\n";
 
 		foreach( $keyHistory as $kh ) {
@@ -138,8 +137,7 @@ print "<table border=1 class='greenTable'>\n";
 
 foreach($parsed as $adorn) {
 	print "<tr>\n";
-		print "<td><a target='_new' href=\"http://u.eq2wire.com/item/index/{$adorn['id']}\">{$adorn['name']}</a><br/>\n";
-		print "<small>{$adorn['id']}</small></td>\n";
+		print "<td><a target='_new' href=\"http://u.eq2wire.com/item/index/{$adorn['id']}\">{$adorn['name']}</a></td>\n";
 
 		if( $adorn['level'] < 90 ) {
 			print "<td class='under'>";
