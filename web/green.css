@@ -1,6 +1,9 @@
 .greenTable {
 	border-collapse: collapse;
 }
+.greenTable td{
+	padding: 5px;
+}
 
 .statHead {
 	font-weight: normal; 
