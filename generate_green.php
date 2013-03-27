@@ -152,12 +152,12 @@ foreach($parsed as $adorn) {
 		}
 		print "<small>...{$growth}</small></td>\n";
 
-		print "<td class='statBox'>";
-			if( !empty($adorn['total'][$kh]) ) {
-				print $adorn['total'][$kh];
 		foreach( $translate as $statKey => $statText ) {
+			print "<td class='statBox'>";
+			if( !empty($adorn['total'][$statKey]) ) {
+				print $adorn['total'][$statKey];
 			}
-		print "</td>\n";
+			print "</td>\n";
 		}
 	print "</tr>\n";
 }
