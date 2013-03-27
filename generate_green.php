@@ -119,7 +119,7 @@ print "<table border=1 class='greenTable'>\n";
 	print "<tr>\n";
 		print "<th>name</th>\n";
 		print "<th>lvl</th>\n";
-		print "<th>This will grow in power as...</small></td>\n";
+		print "<th>This will grow<br>in power as you...</small></td>\n";
 
 		foreach( $translate as $statKey => $statText ) {
 			if( strlen($statText) <= 3 ) {
@@ -144,13 +144,13 @@ foreach($parsed as $adorn) {
 		}
 			print $adorn['level'] ."</td>\n";
 
-		$growth = str_replace("This will grow in power as ",'',$adorn['growth']);
-		if( $growth == "you gain Adventure Experience!" ) {
+		$growth = str_replace("This will grow in power as you",'',$adorn['growth']);
+		if( $growth == " gain Adventure Experience!" ) {
 			print "<td class='commonXP'>";
 		} else {
 			print "<td>";
 		}
-		print "<small>... {$growth}</small></td>\n";
+		print "<small>...{$growth}</small></td>\n";
 
 		print "<td class='statBox'>";
 			if( !empty($adorn['total'][$kh]) ) {
