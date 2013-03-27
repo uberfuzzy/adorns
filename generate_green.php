@@ -118,6 +118,7 @@ print "</style>\n";
 print "</head>\n";
 
 print "<body>\n";
+print "<big><b>EQ2 Green Adornments</b></big><br>\n";
 
 print "<table border=1 class='greenTable'>\n";
 	print "<tr>\n";
