@@ -104,6 +104,7 @@ print '<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/
 <script type="text/javascript" src="http://u.eq2wire.com/js/eq2u_tools.js"></script>
 <link rel="stylesheet" href="adorns.css">
 <link rel="stylesheet" href="green.css">
+<script type="text/javascript" src="green.js"></script>
 ';
 
 print "<title>Green Adornments</title>\n";
