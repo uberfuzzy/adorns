@@ -121,13 +121,13 @@ print "<table border=1 class='greenTable'>\n";
 		print "<th>lvl</th>\n";
 		print "<th>This will grow in power as...</small></td>\n";
 
-			if( in_array($kh, array('str','agi','int','wis','sta') ) ) {
-				$color = 'greenStat';
 		foreach( $translate as $statKey => $statText ) {
+			if( strlen($statText) <= 3 ) {
+				$colorClass = 'greenStat';
 			} else {
-				$color = 'blueStat';
+				$colorClass = 'blueStat';
 			}
-			print "<th class='statHead {$color}'><div class='uptext' title='{$kh}'><div class='uptext_inner'>{$translate[$kh]}</div></div></th>\n";
+			print "<th class='statHead {$colorClass}'><div class='uptext' title='{$statKey}'><div class='uptext_inner'>{$statText}</div></div></th>\n";
 		}
 
 	print "</tr>\n";
