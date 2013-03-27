@@ -179,3 +179,7 @@ if( !file_exists("html/") ) { mkdir("html"); }
 file_put_contents( 'html/green.html', $html );
 
 print "filesize=". filesize('html/green.html') . "\n";
+
+if( !empty($php_errormsg) ) {
+	print "php_errormsg= " . $php_errormsg . "\n";
+}
