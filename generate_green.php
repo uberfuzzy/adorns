@@ -170,6 +170,10 @@ print "</table>\n";
 
 footerLinks();
 
+print "<hr>\n";
+print "Popups provided by <a href='http://u.eq2wire.com'>EQ2U</a>, an <a href='http://eq2wire.com'>EQ2Wire</a> project<br>\n";
+print "generated=" . gmdate('r') . "<br>\n";
+
 print "</body>\n";
 
 print "</html>\n";
