@@ -143,9 +143,9 @@ foreach($parsed as $adorn) {
 		print "<td><a target='_new' href=\"http://u.eq2wire.com/item/index/{$adorn['id']}\">{$adorn['name']}</a></td>\n";
 
 		if( $adorn['level'] < 90 ) {
-			print "<td class='under'>";
+			print "<td class='levelBox under'>";
 		} else {
-			print "<td>";
+			print "<td class='levelBox'>";
 		}
 			print $adorn['level'] ."</td>\n";
 
