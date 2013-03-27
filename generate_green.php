@@ -139,7 +139,7 @@ print "<table border=1 class='greenTable'>\n";
 
 
 foreach($parsed as $adorn) {
-	print "<tr>\n";
+	print "<tr class='adornRow'>\n";
 		print "<td><a target='_new' href=\"http://u.eq2wire.com/item/index/{$adorn['id']}\">{$adorn['name']}</a></td>\n";
 
 		if( $adorn['level'] < 90 ) {
