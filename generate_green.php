@@ -48,7 +48,6 @@ $translate['hategainmod'] = 'Hate Gain';
 
 
 $parsed = array();
-$keyHistory = array();
 $unknownCount = 0;
 
 foreach( $adorns as $adorn ) {
@@ -75,8 +74,6 @@ foreach( $adorns as $adorn ) {
 				$total[$statKey] = 0;
 			}
 			$total[$statKey] += $statVal;
-			$keyHistory[] = $statKey;
-
 		}
 	}
 	$current['total'] = $total;
@@ -96,8 +93,6 @@ if( $unknownCount ) {
 	print "\nHALT! unknownCount={$unknownCount}\n";
 	exit;
 }
-
-$keyHistory = array_unique( $keyHistory );
 
 print "start html\n";
 ob_start();
@@ -126,9 +121,9 @@ print "<table border=1 class='greenTable'>\n";
 		print "<th>lvl</th>\n";
 		print "<th>This will grow in power as...</small></td>\n";
 
-		foreach( $keyHistory as $kh ) {
 			if( in_array($kh, array('str','agi','int','wis','sta') ) ) {
 				$color = 'greenStat';
+		foreach( $translate as $statKey => $statText ) {
 			} else {
 				$color = 'blueStat';
 			}
@@ -157,10 +152,10 @@ foreach($parsed as $adorn) {
 		}
 		print "<small>... {$growth}</small></td>\n";
 
-		foreach( $keyHistory as $kh ) {
 		print "<td class='statBox'>";
 			if( !empty($adorn['total'][$kh]) ) {
 				print $adorn['total'][$kh];
+		foreach( $translate as $statKey => $statText ) {
 			}
 		print "</td>\n";
 		}
