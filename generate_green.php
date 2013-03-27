@@ -46,6 +46,11 @@ $translate['hategainmod'] = 'Hate Gain';
 
 // $translate[''] = '';
 
+$silkRoot = 'http://silk.ubrfzy.com'; #prod
+$image = array();
+$image['-']     = "<img class='silk' src='{$silkRoot}/delete.png'>";
+$image['check'] = "<img class='silk' src='{$silkRoot}/accept.png'>";
+
 
 $parsed = array();
 $unknownCount = 0;
@@ -120,7 +125,8 @@ print "<table border=1 class='greenTable'>\n";
 	print "<tr>\n";
 		print "<th>name</th>\n";
 		print "<th>lvl</th>\n";
-		print "<th>This will grow<br>in power as you...</small></td>\n";
+		print "<th>This will grow<br>in power as you...</small></th>\n";
+		print "<th></th>\n";
 
 		foreach( $translate as $statKey => $statText ) {
 			if( strlen($statText) <= 3 ) {
@@ -130,6 +136,7 @@ print "<table border=1 class='greenTable'>\n";
 			}
 			print "<th class='statHead {$colorClass}'><div class='uptext' title='{$statKey}'><div class='uptext_inner'>{$statText}</div></div></th>\n";
 		}
+		print "<th></th>\n";
 
 	print "</tr>\n";
 
@@ -145,6 +152,7 @@ foreach($parsed as $adorn) {
 		}
 			print $adorn['level'] ."</td>\n";
 
+
 		$growth = str_replace("This will grow in power as you",'',$adorn['growth']);
 		if( $growth == " gain Adventure Experience!" ) {
 			print "<td class='commonXP'>";
@@ -152,6 +160,9 @@ foreach($parsed as $adorn) {
 			print "<td>";
 		}
 		print "<small>...{$growth}</small></td>\n";
+		print "<td>";
+		print "<span class='clickable rowMarker' title='Mark this row'>{$image['check']}</span>";
+		print "</td>\n";
 
 		foreach( $translate as $statKey => $statText ) {
 			print "<td class='statBox'>";
@@ -160,6 +171,10 @@ foreach($parsed as $adorn) {
 			}
 			print "</td>\n";
 		}
+
+		print "<td>";
+		print "<span class='clickable rowHider' title='hide this row'>{$image['-']}</span>";
+		print "</td>\n";
 	print "</tr>\n";
 }
 print "</table>\n";
