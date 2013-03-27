@@ -3,7 +3,7 @@ include_once "func.html.php";
 
 $url = "http://data.soe.com/json/get/eq2/item/?c:limit=100&c:has=typeinfo.growthdescription&c:show=displayname,leveltouse,typeinfo.growthdescription,growth_table,gamelink&c:sort=leveltouse,displayname";
 
-@mkdir("cache");
+if( !file_exists("cache/") ) { mkdir("cache"); }
 $cacheFile = 'cache/green.cache';
 
 if( file_exists($cacheFile) ) {
@@ -175,7 +175,7 @@ print "</html>\n";
 $html = ob_get_clean();
 print "end html\n";
 
-@mkdir("html");
+if( !file_exists("html/") ) { mkdir("html"); }
 file_put_contents( 'html/green.html', $html );
 
 print "filesize=". filesize('html/green.html') . "\n";
