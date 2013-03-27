@@ -45,4 +45,5 @@ td { font-size: 100%; }
 .blueStat  { background-color: rgba(11.8%, 56.5%, 100%, .5); }
 .greenStat { background-color: rgba(11.8%, 100%, 55.3%, .5); }
 
-tr.marked { background-color: rgba(100%, 100%, 0%, .5); }
+tr.markMaybe { background-color: rgba(100%, 100%, 0%, .5); }
+tr.markHave { background-color: rgba(100%, 50%, 0%, .5); }

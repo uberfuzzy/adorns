@@ -1,6 +1,7 @@
 $(document).ready( function() {
 	$(document).on('click', '.rowHider', rowHider );
-	$(document).on('click', '.rowMarker', rowMarker );
+	$(document).on('click', '.rowMarkHave', rowMarkHave );
+	$(document).on('click', '.rowMarkMaybe', rowMarkMaybe );
 } );
 
 function rowHider() {
@@ -11,8 +12,12 @@ function rowHider() {
 	$(".rowReset").fadeIn('fast');
 }
 
-function rowMarker() {
+function rowMarkHave() {
 	var par = $(this).parents("tr");
-	$(par).toggleClass('marked');
+	$(par).toggleClass('markHave');
+}
 
+function rowMarkMaybe() {
+	var par = $(this).parents("tr");
+	$(par).toggleClass('markMaybe');
 }

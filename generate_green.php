@@ -49,7 +49,8 @@ $translate['hategainmod'] = 'Hate Gain';
 $silkRoot = 'http://silk.ubrfzy.com'; #prod
 $image = array();
 $image['-']     = "<img class='silk' src='{$silkRoot}/delete.png'>";
-$image['check'] = "<img class='silk' src='{$silkRoot}/accept.png'>";
+$image['?'] = "<img class='silk' src='{$silkRoot}/help.png'>";
+$image['check'] = "<img class='silk' src='{$silkRoot}/tick.png'>";
 
 
 $parsed = array();
@@ -161,7 +162,8 @@ foreach($parsed as $adorn) {
 		}
 		print "<small>...{$growth}</small></td>\n";
 		print "<td>";
-		print "<span class='clickable rowMarker' title='Mark this row'>{$image['check']}</span>";
+		print "<span class='clickable rowMarkHave' title='Mark this row as you HAVE it'>{$image['check']}</span>";
+		print "<span class='clickable rowMarkMaybe' title='Mark this row as you CONSIDER it'>{$image['?']}</span>";
 		print "</td>\n";
 
 		foreach( $translate as $statKey => $statText ) {
