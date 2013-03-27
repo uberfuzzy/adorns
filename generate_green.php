@@ -20,28 +20,30 @@ unset($json);
 // print_r( $adorns );
 
 $translate = array();
-$translate['all'] = 'Ability Modifier';
-$translate['sta'] = 'sta';
 $translate['agi'] = 'agi';
 $translate['int'] = 'int';
-$translate['wis'] = 'wis';
 $translate['str'] = 'str';
-$translate['spelltimecastpct'] = 'Ability Casting Speed';
+$translate['wis'] = 'wis';
+$translate['sta'] = 'sta';
+
 $translate['basemodifier'] = 'Potency';
 $translate['critbonus'] = 'Crit Bonus';
-$translate['spelltimereusespellonly'] = 'Spell Reuse Speed';
+$translate['strikethrough'] = 'Strikethrough';
 $translate['dps'] = 'Damage Per Second';
-$translate['attackspeed'] = 'Attack Speed';
-$translate['spellweapondps'] = 'Spell Weapon Damage Per Second';
-$translate['spellweapondoubleattackchance'] = 'Spell Weapon Multi Attack Chance';
-$translate['hategainmod'] = 'Hate Gain';
 $translate['armormitigationincrease'] = 'Mitigation Increase';
+$translate['attackspeed'] = 'Attack Speed';
 $translate['maxhpperc'] = 'Max Health';
+$translate['all'] = 'Ability Modifier';
+$translate['spelltimecastpct'] = 'Ability Casting Speed';
+$translate['spelltimereusespellonly'] = 'Spell Reuse Speed';
+$translate['doubleattackchance'] = 'Multi Attack Chance';
+$translate['spellweapondoubleattackchance'] = 'SW Multi Attack Chance';
+$translate['spellweapondps'] = 'SW Damage Per Second';
 $translate['spelltimereusepct'] = 'Ability Reuse Speed';
 $translate['weapondamagebonus'] = 'Weapon Damage Bonus';
-$translate['spellweaponattackspeed'] = 'Spell Weapon Attack Speed';
-$translate['doubleattackchance'] = 'Multi Attack Chance';
-$translate['strikethrough'] = 'Strikethrough';
+$translate['spellweaponattackspeed'] = 'SW Attack Speed';
+$translate['hategainmod'] = 'Hate Gain';
+
 // $translate[''] = '';
 
 
