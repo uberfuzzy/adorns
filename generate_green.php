@@ -156,7 +156,7 @@ foreach($parsed as $adorn) {
 
 		$growth = str_replace("This will grow in power as you",'',$adorn['growth']);
 		$growth = ltrim($growth, " r"); #until SOE fixes the "your" on cure adorns
-		if( $growth == " gain Adventure Experience!" ) {
+		if( $growth == "gain Adventure Experience!" ) {
 			print "<td class='commonXP'>";
 		} else {
 			print "<td>";
