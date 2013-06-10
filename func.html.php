@@ -20,6 +20,14 @@ function makeHtml( $adornData, $workUnit ) {
 <script type="text/javascript" src="http://u.eq2wire.com/js/eq2u_tools.js"></script>
 <link rel="stylesheet" href="adorns.css">
 <script type="text/javascript" src="adorns.js"></script>
+<script type="text/javascript">
+var slotText = {};
+';
+foreach( $slotMap['white'] as $smi => $sm ) {
+	print "slotText[{$smi}] = '" . strtolower($sm) . "';\n";
+}
+print '
+</script>
 <title>'. $workUnit['title'] .'</title>
 </head>
 <body>
@@ -77,8 +85,11 @@ function makeHtml( $adornData, $workUnit ) {
 
 	foreach( $adornData as $a ) {
 
-		print "<tr>\n";
-
+		$dataStrings = '';
+		foreach( $a['slots'] as $slotID) {
+			$dataStrings .= sprintf(' data-%s="%s"', strtolower( $slotMap['white'][$slotID] ), 1);
+		}
+		print "<tr class='adornment'{$dataStrings}>\n";
 
 		# do the left name
 		print "<td>{$a['root']}</td>\n";
