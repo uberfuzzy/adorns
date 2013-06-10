@@ -57,6 +57,8 @@ function colOnly () {
 	$( "th.slotGroup[data-group="+group+"]").attr('colspan', 1);
 	$( "th.slotGroup[data-group!="+group+"]").hide();
 	$(".colReset").fadeIn();
+
+	$("tr.adornment:not([data-"+ slotText[slot] +"])").hide();
 }
 
 function colReset() {
@@ -69,7 +71,7 @@ function colReset() {
 		// console.log( $(this) );
 		$(this).attr('colspan', o);
 	} );
-
+	$("tr.adornment").show();
 }
 
 function slotPos() {
