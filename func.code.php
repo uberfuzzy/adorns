@@ -3,7 +3,7 @@ function getData($searchTerms, $cacheFile) {
 	$params = array();
 	$params['c:limit'] = '1000';
 	// $params['c:limit'] = '10';
-	$params['c:show'] = 'typeinfo.slot_list,leveltouse,typeinfo.color';
+	$params['c:show'] = 'typeinfo.slot_list,leveltouse,typeinfo.color,typeinfo.classes';
 	$params['c:sort'] = 'displayname';
 	$params['typeinfo.name'] = 'adornment';
 
@@ -58,6 +58,35 @@ function json2adorns( $json ) {
 			list( $root, $grade) = explode("(", rtrim($item->displayname,")") );
 			$root = trim($root);
 			$gradeKey = strtolower( substr($grade,0,1) );
+		}
+		elseif( $item->typeinfo->color == 'red' ) {
+			$root = $item->displayname;
+			$gradeKey = '*';
+			$moo = 0;
+			$moo += preg_match("/Focus: /", $item->displayname);
+			$moo += preg_match("/Broad Rune: /", $item->displayname);
+			$moo += preg_match("/Jagged Rune: /", $item->displayname);
+			$moo += preg_match("/Resonating Rune: /", $item->displayname);
+			$moo += preg_match("/Reverberating Rune: /", $item->displayname);
+			$moo += preg_match("/Rigid Rune: /", $item->displayname);
+			$moo += preg_match("/Rippling Rune: /", $item->displayname);
+			$moo += preg_match("/Thick Rune: /", $item->displayname);
+			$moo += preg_match("/Vibrating Rune: /", $item->displayname);
+			
+			if( $moo ) {
+				print "RESTRICTED? [{$moo}]\n";
+				$cnt = count( (array)$item->typeinfo->classes );
+				print "count={$cnt}\n";
+				if( $cnt <= 3 ) {
+					print "YUP [{$cnt}}\n--------------SKIPPPING!\n";
+					// print_r($item->typeinfo->classes);
+					print "--------------\n";
+					continue;
+				} else {
+					print "NOPE!\n";
+				}
+				// exit("didnt skip a focus\n");
+			}
 		}
 		else {
 			$root = $item->displayname;
