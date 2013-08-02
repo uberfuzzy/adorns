@@ -1,7 +1,7 @@
 <?php
 include_once "func.html.php";
 
-$url = "http://data.soe.com/json/get/eq2/item/?c:limit=100&c:has=typeinfo.growthdescription&c:show=displayname,leveltouse,typeinfo.growthdescription,growth_table,gamelink&c:sort=leveltouse,displayname";
+$url = "http://data.soe.com/json/get/eq2/item/?c:limit=200&c:has=typeinfo.growthdescription&c:show=displayname,leveltouse,typeinfo.growthdescription,growth_table,gamelink&c:sort=leveltouse,displayname";
 
 if( !file_exists("cache/") ) { mkdir("cache"); }
 $cacheFile = 'cache/green.cache';
@@ -17,6 +17,7 @@ $json = json_decode($json,true);
 $adorns = $json['item_list'];
 unset($json);
 
+echo "c=", count($adorns), "\n";
 // print_r( $adorns );
 
 $translate = array();
