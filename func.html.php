@@ -89,7 +89,25 @@ print '
 		foreach( $a['slots'] as $slotID) {
 			$dataStrings .= sprintf(' data-%s="%s"', strtolower( $slotMap['white'][$slotID] ), 1);
 		}
-		print "<tr class='adornment'{$dataStrings}>\n";
+
+		$classExtra = '';
+		if( $workUnit['color'] == 'white' ) {
+			if( strpos($a['root'], 'of Endurance') // +health
+				|| strpos($a['root'], 'of Energy') // +mana
+				|| strpos($a['root'], ' Resilience') // lolresists
+			) {
+				$classExtra .= ' stupid';
+			}
+			if( strpos($a['root'], 'of Magical Skill') ) { $classExtra .= ' mage priest'; }
+			if( strpos($a['root'], 'of Weaponry') ) { $classExtra .= ' fighter scout'; }
+
+			if( strpos($a['root'], 'of Strength') ) { $classExtra .= ' fighter'; }
+			if( strpos($a['root'], 'of Wisdom') ) { $classExtra .= ' priest'; }
+			if( strpos($a['root'], 'of Agility') ) { $classExtra .= ' scout'; }
+			if( strpos($a['root'], 'of Intelligence') ) { $classExtra .= ' mage'; }
+		}
+
+		print "<tr class='adornment{$classExtra}'{$dataStrings}>\n";
 
 		# do the left name
 		print "<td>{$a['root']}</td>\n";
