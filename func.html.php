@@ -8,11 +8,11 @@ function makeHtml( $adornData, $workUnit ) {
 	if( empty($workUnit['html']) ) {
 		$workUnit['html'] = time() . '.html';
 	}
-	
+
 	if( empty($workUnit['color']) ) {
 		$workUnit['color'] = 'white';
 	}
-	
+
 	ob_start();
 	print '<!DOCTYPE html>
 <head>
@@ -178,6 +178,15 @@ print '
 	print "</table>\n";
 	print "<button class='rowReset clickable'>" . $image['reset'] . " unhide all hidden rows</button>\n";
 	print "<button class='colReset clickable'>" . $image['reset'] . " unhide all hidden columns</button><br>\n";
+
+	if( $workUnit['color'] == 'white' ) {
+		print "<button class='stupid clickable'>remove stupid</button> &bull; \n";
+		print "I am a... ";
+		print "<button class='iam clickable' data-arch='fighter'>FIGHTER</button>\n";
+		print "<button class='iam clickable' data-arch='priest' >PRIEST</button>\n";
+		print "<button class='iam clickable' data-arch='mage'   >MAGE</button>\n";
+		print "<button class='iam clickable' data-arch='scout'  >SCOUT</button><br>\n";
+	}
 
 	footerLinks();
 
