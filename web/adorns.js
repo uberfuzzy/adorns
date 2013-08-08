@@ -100,7 +100,7 @@ function iAmClicker () {
 	console.log("iAmClicker>");
 
 	var arch = $(this).data('arch');
-	$("button.iam").remove();
+	$('#iAmBox').remove();
 
 	switch( arch ) {
 		case 'fighter':
