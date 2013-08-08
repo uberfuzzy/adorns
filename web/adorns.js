@@ -7,6 +7,8 @@ $(document).ready( function() {
 	$(document).on('click', '.colReset', colReset );
 	$(document).on('click', '.slotPos', slotPos );
 
+	$(document).on('click', 'button.stupid', antiStupid );
+	$(document).on('click', 'button.iam', iAmClicker );
 } );
 
 function rowHider() {
@@ -86,5 +88,42 @@ function slotPos() {
 	if( mark == 'check' ) {
 		$(icon).attr('src', 'http://silk.ubrfzy.com/help.png');
 		$(this).attr('data-mark','?').attr('title','possible placement');
+	}
+}
+
+function antiStupid () {
+	$('tr.adornment.stupid').remove();
+	$(this).remove();
+}
+
+function iAmClicker () {
+	console.log("iAmClicker>");
+	
+	var arch = $(this).data('arch');
+	$("button.iam").remove();
+	
+	switch( arch ) {
+		case 'fighter':
+			$('tr.adornment.priest').remove();
+			$('tr.adornment.mage').remove();
+			break;
+
+		case 'priest':
+			$('tr.adornment.fighter').remove();
+			$('tr.adornment.scout').remove();
+			break;
+
+		case 'mage':
+			$('tr.adornment.fighter').remove();
+			$('tr.adornment.scout').remove();
+			break;
+
+		case 'scout':
+			$('tr.adornment.priest').remove();
+			$('tr.adornment.mage').remove();
+			break;
+
+		default:
+			break;
 	}
 }
