@@ -22,6 +22,7 @@ function rowHider() {
 function rowReset() {
 	// console.log('you clicked a reset!');
 	$('tr').fadeIn('fast');
+	$(".rowReset").fadeOut('fast');
 }
 
 function colHider() {
@@ -74,6 +75,7 @@ function colReset() {
 		$(this).attr('colspan', o);
 	} );
 	$("tr.adornment").show();
+	$(".colReset").fadeOut();
 }
 
 function slotPos() {
