@@ -98,8 +98,8 @@ print '
 			) {
 				$classExtra .= ' stupid';
 			}
-			if( strpos($a['root'], 'of Magical Skill') ) { $classExtra .= ' mage priest'; }
-			if( strpos($a['root'], 'of Weaponry') ) { $classExtra .= ' fighter scout'; }
+			if( strpos($a['root'], 'of Magical Skill') ) { $classExtra .= ' caster'; }
+			if( strpos($a['root'], 'of Weaponry') ) { $classExtra .= ' melee'; }
 
 			if( strpos($a['root'], 'of Strength') ) { $classExtra .= ' fighter'; }
 			if( strpos($a['root'], 'of Wisdom') ) { $classExtra .= ' priest'; }
